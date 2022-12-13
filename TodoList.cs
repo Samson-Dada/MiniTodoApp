@@ -34,15 +34,6 @@ namespace TodoApp
             }
         }
 
-        public List<string> ReadTodoListFile(string filePath)
-        {
-
-            if (File.Exists(filePath))
-            {
-                File.Create(filePath);
-            }
-            return File.ReadAllLines(filePath).ToList();
-        }
         public string RemoveTodoList(string filePath, List<string> TodoListContent)
         {
             File.Delete(filePath);

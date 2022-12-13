@@ -13,13 +13,7 @@ namespace TodoApp
 
         public Form1()
         {
-
             InitializeComponent();
-            /*
-             _todoItems = new IOLogic().ReadFromFile(_path);
-            InitializeComponent();
-            DisplayScreen.Text = string.Join("\n", _todoItems);
-             */
         }
 
         private void Add_Task_Click(object sender, System.EventArgs e)
@@ -38,8 +32,12 @@ namespace TodoApp
         }
         private void Remove_task_Click(object sender, System.EventArgs e)
         {
-            _todoListTask.RemoveAt(TodoTaskContent.Text.Length);
-            todoList.RemoveTodoList(TodoTaskContent.Text, _todoListTask);
+            foreach (var item in _todoListTask)
+            {
+                TodoListItemReply.Text = item;
+                _todoListTask.Remove(TodoTaskContent.Text = item);
+                todoList.RemoveTodoList(_path, _todoListTask);
+            }
 
         }
 
